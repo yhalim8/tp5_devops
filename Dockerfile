@@ -1,3 +1,3 @@
-FROM tomcat
-COPY index.html /usr/share/tomcat6-myapp
+FROM nginx:latest
+COPY index.html /usr/share/nginx/html
 EXPOSE 80
