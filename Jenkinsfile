@@ -39,7 +39,7 @@ stage('Test image') {
                 script {
                         
                         PID=$(lsof -t -i:3030)
-                        if [ -n "$PID" ]; then
+                        if [ -n "$PID" ] then
                             echo "Stopping previous instance of your_application_name (PID: $PID)"
                             kill $PID
                         else
