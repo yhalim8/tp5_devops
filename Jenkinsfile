@@ -36,7 +36,7 @@ stage('Test image') {
  }
  stage('Deploy image') {
  steps{
- sh "docker run -d $registry:$BUILD_NUMBER"
+ sh "docker run -p 3030:80 -d $registry:$BUILD_NUMBER"
  }
  }
  }
