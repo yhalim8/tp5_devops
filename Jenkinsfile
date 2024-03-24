@@ -36,7 +36,7 @@ stage('Test image') {
  }
  stage('Deploy image') {
  steps{
- bat "docker run -d $registry:$BUILD_NUMBER"
+ sh "docker run -d $registry:$BUILD_NUMBER"
  }
  }
  }
