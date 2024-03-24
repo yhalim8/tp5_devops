@@ -34,6 +34,20 @@ stage('Test image') {
  }
  }
  }
+    stage('Stop Previous Instance') {
+            steps {
+                script {
+                        
+                        PID=$(lsof -t -i:3030)
+                        if [ -n "$PID" ]; then
+                            echo "Stopping previous instance of your_application_name (PID: $PID)"
+                            kill $PID
+                        else
+                            echo "No previous instance of your_application_name running."
+                        fi
+                }
+            }
+        }
  stage('Deploy image') {
  steps{
  sh "docker run -d $registry:$BUILD_NUMBER"
