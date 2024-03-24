@@ -1,6 +1,6 @@
 pipeline {
  environment {
- registry = "yhalim8/tp-devops"
+ registry = "yhalim8/tp_devops"
  registryCredential = 'dockerhub'
  dockerImage = ''
  }
