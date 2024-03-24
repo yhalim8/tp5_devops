@@ -21,7 +21,6 @@ pipeline {
 stage('Test image') {
  steps{
  script {
- 
  echo "Tests passed"
  }
  }
@@ -33,6 +32,11 @@ stage('Test image') {
  dockerImage.push()
  }
  }
+ }
+ }
+ stage('Deploy image') {
+ steps{
+ bat "docker run -d $registry:$BUILD_NUMBER"
  }
  }
  }
